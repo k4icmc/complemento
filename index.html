@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My app</title>
-    <link rel="shortcut icon" href="https://i.ibb.co/W4j1VK9n/logo-hack-hype-Photoroom.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8">
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="flex justify-center items-center h-screen overflow-hidden bg-white font-sans text-center px-6"><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -15,17 +6,26 @@
     <title>HACK HYPE - Futuro Digital</title>
     <link rel="shortcut icon" href="https://i.ibb.co/W4j1VK9n/logo-hack-hype-Photoroom.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --stranger-red: #e72525;
+            --stranger-blue: #00a2ff;
+            --stranger-purple: #6a0dad;
+            --stranger-dark: #0a0a1a;
+            --stranger-light: #b3e0ff;
+            --neon-glow: 0 0 10px var(--stranger-blue), 0 0 20px var(--stranger-blue), 0 0 30px var(--stranger-blue);
         }
 
         body {
-            background: linear-gradient(135deg, #0a0a2a, #0d1b2a, #1b263b);
-            color: #ffffff;
+            background-color: var(--stranger-dark);
+            color: var(--stranger-light);
             min-height: 100vh;
             position: relative;
             display: flex;
@@ -34,6 +34,117 @@
             justify-content: center;
             padding: 2rem 1rem;
             overflow-x: hidden;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Efeito de grade estilo Stranger Things */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 162, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 162, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Efeito de glitch no texto */
+        .glitch {
+            position: relative;
+            color: white;
+            font-size: 3rem;
+            letter-spacing: 0.1em;
+            animation: glitch-skew 4s infinite linear alternate-reverse;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--stranger-red);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--stranger-blue);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim2 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(40px, 9999px, 86px, 0); }
+            95% { clip: rect(45px, 9999px, 72px, 0); }
+            100% { clip: rect(23px, 9999px, 49px, 0); }
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            10% { transform: skew(2deg); }
+            20% { transform: skew(0deg); }
+            30% { transform: skew(-1deg); }
+            40% { transform: skew(0deg); }
+            50% { transform: skew(3deg); }
+            60% { transform: skew(0deg); }
+            70% { transform: skew(-2deg); }
+            80% { transform: skew(0deg); }
+            90% { transform: skew(1deg); }
+            100% { transform: skew(0deg); }
         }
 
         #particles-js {
@@ -42,17 +153,27 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 1;
+            z-index: 2;
         }
 
         .container {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             text-align: center;
             padding: 2rem;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             margin: 2rem auto;
+            border: 2px solid var(--stranger-blue);
+            border-radius: 15px;
+            background-color: rgba(10, 10, 26, 0.8);
+            box-shadow: var(--neon-glow);
+            animation: border-pulse 4s infinite;
+        }
+
+        @keyframes border-pulse {
+            0%, 100% { box-shadow: 0 0 15px var(--stranger-blue), 0 0 25px var(--stranger-blue), 0 0 35px var(--stranger-blue); }
+            50% { box-shadow: 0 0 20px var(--stranger-blue), 0 0 40px var(--stranger-blue), 0 0 60px var(--stranger-blue); }
         }
 
         .header {
@@ -63,48 +184,72 @@
         .logo {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: #00e5ff;
-            text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
+            color: var(--stranger-red);
+            text-shadow: 0 0 15px rgba(231, 37, 37, 0.9);
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #00e5ff, #0099cc, #00ccff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 3px;
         }
 
         .subtitle {
             font-size: 1.2rem;
-            color: #a0d2ff;
+            color: var(--stranger-light);
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .qr-container {
-            background: rgba(0, 20, 40, 0.6);
-            border-radius: 20px;
+            background: rgba(0, 20, 40, 0.7);
+            border-radius: 15px;
             padding: 1.5rem;
             margin: 2rem 0;
-            border: 2px solid #00aaff;
-            box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+            border: 1px solid var(--stranger-blue);
             backdrop-filter: blur(10px);
-            animation: pulse 4s infinite ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de varredura de scanner */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--stranger-blue), transparent);
+            box-shadow: 0 0 10px var(--stranger-blue);
+            animation: scan 3s linear infinite;
+            z-index: 1;
+            display: none;
+        }
+
+        .qr-container.show-qr .scan-line {
+            display: block;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
         }
 
         .qr-code {
             width: 280px;
             height: 280px;
             margin: 0 auto;
-            border: 3px solid #00e5ff;
-            border-radius: 15px;
+            border: 3px solid var(--stranger-blue);
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
             transition: transform 0.3s ease;
             display: none; /* QR Code oculto inicialmente */
+            position: relative;
+            z-index: 2;
+            background-color: white;
         }
 
         .qr-code.show {
@@ -123,9 +268,10 @@
 
         .instructions {
             margin: 1.5rem 0;
-            color: #cce6ff;
+            color: var(--stranger-light);
             font-size: 1.1rem;
             line-height: 1.6;
+            text-shadow: 0 0 5px var(--stranger-blue);
         }
 
         .btn-container {
@@ -139,10 +285,10 @@
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(45deg, #0066cc, #00aaff);
+            background: linear-gradient(45deg, var(--stranger-dark), var(--stranger-blue));
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 5px;
             font-size: 1.1rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -156,12 +302,13 @@
             flex: 1;
             min-width: 200px;
             text-align: center;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 170, 255, 0.6);
-            background: linear-gradient(45deg, #00aaff, #0066cc);
+            box-shadow: 0 8px 25px rgba(0, 170, 255, 0.8);
+            background: linear-gradient(45deg, var(--stranger-blue), var(--stranger-purple));
         }
 
         .btn:active {
@@ -181,21 +328,23 @@
         }
 
         .btn-qr {
-            background: linear-gradient(45deg, #ff6b6b, #ff9e7d);
+            background: linear-gradient(45deg, var(--stranger-red), #ff6b6b);
         }
 
         .btn-qr:hover {
-            background: linear-gradient(45deg, #ff9e7d, #ff6b6b);
+            background: linear-gradient(45deg, #ff9e7d, var(--stranger-red));
             box-shadow: 0 8px 25px rgba(255, 158, 125, 0.6);
         }
 
         .footer {
             margin-top: 2.5rem;
-            color: #88c0ff;
+            color: var(--stranger-light);
             font-size: 0.9rem;
             text-align: center;
             width: 100%;
             padding: 1rem;
+            position: relative;
+            z-index: 3;
         }
 
         .social-icons {
@@ -206,13 +355,28 @@
         }
 
         .social-icons a {
-            color: #00ccff;
+            color: var(--stranger-blue);
             font-size: 1.5rem;
             transition: color 0.3s ease;
         }
 
         .social-icons a:hover {
-            color: #00e5ff;
+            color: var(--stranger-red);
+            text-shadow: 0 0 10px var(--stranger-red);
+        }
+
+        /* Efeito de luz piscando */
+        .flicker {
+            animation: flicker 3s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
         }
 
         /* Animações */
@@ -227,22 +391,49 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 35px rgba(0, 170, 255, 0.7);
-            }
-        }
-
         @keyframes shine {
             0% {
                 transform: rotate(45deg) translate(-30%, -30%);
             }
             100% {
-                transform: rotate(45deg) translate(30%, 30);
+                transform: rotate(45deg) translate(30%, 30%);
             }
+        }
+
+        /* Controles de áudio */
+        .audio-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(10, 10, 26, 0.8);
+            padding: 10px 15px;
+            border-radius: 30px;
+            border: 1px solid var(--stranger-blue);
+            box-shadow: 0 0 10px var(--stranger-blue);
+        }
+
+        .audio-controls button {
+            background: transparent;
+            border: none;
+            color: var(--stranger-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .audio-controls button:hover {
+            color: var(--stranger-red);
+            transform: scale(1.1);
+        }
+
+        /* Efeito de texto digital */
+        .digital-text {
+            font-family: 'Roboto Mono', monospace;
+            text-shadow: 0 0 5px var(--stranger-blue);
         }
 
         /* Responsividade */
@@ -288,6 +479,10 @@
             .qr-container {
                 padding: 1.2rem;
             }
+            
+            .glitch {
+                font-size: 2.2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -313,44 +508,51 @@
             .instructions {
                 font-size: 1rem;
             }
-        }
-
-        @media (max-width: 350px) {
-            .qr-code {
-                width: 180px;
-                height: 180px;
+            
+            .glitch {
+                font-size: 1.8rem;
             }
             
-            h1 {
-                font-size: 1.6rem;
-            }
-            
-            .btn {
-                min-width: 120px;
-                font-size: 0.8rem;
-                padding: 0.6rem 1rem;
+            .audio-controls {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Efeito de grade no fundo -->
+    <div class="grid-overlay"></div>
+    
+    <!-- Controles de áudio -->
+    <div class="audio-controls">
+        <button id="playBtn"><i class="fas fa-play"></i></button>
+        <button id="pauseBtn"><i class="fas fa-pause"></i></button>
+        <button id="volumeDownBtn"><i class="fas fa-volume-down"></i></button>
+        <button id="volumeUpBtn"><i class="fas fa-volume-up"></i></button>
+    </div>
+    
+    <!-- Partículas -->
     <div id="particles-js"></div>
     
-    <div class="container">
+    <div class="container flicker">
         <div class="header">
             <div class="logo">
                 <i class="fas fa-qrcode"></i>
             </div>
-            <h1>Hack Hype</h1>
-            <p class="subtitle">Conectando você ao futuro digital</p>
+            <h1 class="glitch" data-text="HACK HYPE">HACK HYPE</h1>
+            <p class="subtitle digital-text">Conectando você ao futuro digital</p>
         </div>
         
-        <div class="qr-container">
+        <div class="qr-container" id="qrContainer">
+            <div class="scan-line"></div>
+            
             <div class="qr-code" id="qrCode">
                 <img src="https://i.ibb.co/mFD4mkPq/qrcode-hack-hype.png" alt="QR Code Hack Hype">
             </div>
             
-            <p class="instructions" id="instructions">Clique no botão abaixo para mostrar o QR Code</p>
+            <p class="instructions digital-text" id="instructions">Clique no botão abaixo para mostrar o QR Code</p>
             
             <div class="btn-container">
                 <a href="https://hack-hype.vercel.app" class="btn" target="_blank">
@@ -362,24 +564,80 @@
                 </button>
             </div>
         </div>
+        
+        <div class="footer digital-text">
+            <p>© 2023 Hack Hype - Todos os direitos reservados</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
     </div>
 
+    <!-- ÁUDIO - AQUI É ONDE VOCÊ DEVE ADICIONAR A MÚSICA DO SEU GITHUB -->
+    <!-- Substitua o link abaixo pelo link da sua música no GitHub -->
+    <audio id="strangerAudio" loop>
+        <!-- Use o link da sua música no GitHub aqui -->
+        <source src="Stranger Things.mp3" type="audio/mpeg">
+        <!-- Fallback caso o link principal não funcione -->
+        <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
     <!-- Script das partículas -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Configuração das partículas
         document.addEventListener('DOMContentLoaded', function() {
+            // Configuração do áudio (começa a tocar automaticamente)
+            const audio = document.getElementById('strangerAudio');
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const volumeDownBtn = document.getElementById('volumeDownBtn');
+            const volumeUpBtn = document.getElementById('volumeUpBtn');
+            
+            // Tenta tocar automaticamente (pode ser bloqueado por alguns navegadores)
+            setTimeout(() => {
+                audio.play().catch(e => {
+                    console.log("Reprodução automática bloqueada. Use os controles para tocar a música.");
+                });
+            }, 1000);
+            
+            // Controles de áudio
+            playBtn.addEventListener('click', () => {
+                audio.play();
+            });
+            
+            pauseBtn.addEventListener('click', () => {
+                audio.pause();
+            });
+            
+            volumeDownBtn.addEventListener('click', () => {
+                if (audio.volume >= 0.1) {
+                    audio.volume -= 0.1;
+                }
+            });
+            
+            volumeUpBtn.addEventListener('click', () => {
+                if (audio.volume <= 0.9) {
+                    audio.volume += 0.1;
+                }
+            });
+            
+            // Configuração das partículas
             particlesJS('particles-js', {
                 particles: {
                     number: {
-                        value: 80,
+                        value: 100,
                         density: {
                             enable: true,
                             value_area: 800
                         }
                     },
                     color: {
-                        value: "#00aaff"
+                        value: ["#00a2ff", "#e72525", "#6a0dad"]
                     },
                     shape: {
                         type: "circle",
@@ -389,7 +647,7 @@
                         }
                     },
                     opacity: {
-                        value: 0.5,
+                        value: 0.7,
                         random: true,
                         anim: {
                             enable: true,
@@ -417,7 +675,7 @@
                     },
                     move: {
                         enable: true,
-                        speed: 2,
+                        speed: 3,
                         direction: "none",
                         random: true,
                         straight: false,
@@ -460,6 +718,7 @@
 
             // Lógica para mostrar/ocultar o QR Code
             const qrCode = document.getElementById('qrCode');
+            const qrContainer = document.getElementById('qrContainer');
             const toggleQrBtn = document.getElementById('toggleQrBtn');
             const instructions = document.getElementById('instructions');
 
@@ -467,21 +726,45 @@
                 if (qrCode.classList.contains('show')) {
                     // Se o QR Code está visível, ocultar
                     qrCode.classList.remove('show');
+                    qrContainer.classList.remove('show-qr');
                     toggleQrBtn.innerHTML = '<i class="fas fa-eye"></i> Mostrar QR Code';
                     instructions.textContent = 'Clique no botão abaixo para mostrar o QR Code';
                 } else {
                     // Se o QR Code está oculto, mostrar
                     qrCode.classList.add('show');
+                    qrContainer.classList.add('show-qr');
                     toggleQrBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Ocultar QR Code';
-                    
+                    instructions.textContent = 'Aponte a câmera do seu dispositivo para o QR Code acima';
                 }
             });
+            
+            // Efeito de digitação para o subtítulo
+            const subtitle = document.querySelector('.subtitle');
+            const originalText = subtitle.textContent;
+            subtitle.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    subtitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            };
+            
+            // Inicia o efeito de digitação após um breve delay
+            setTimeout(typeWriter, 1500);
+            
+            // Efeito de piscar aleatório nos elementos
+            setInterval(() => {
+                const elements = document.querySelectorAll('.flicker');
+                elements.forEach(el => {
+                    if (Math.random() > 0.7) {
+                        el.style.opacity = Math.random() * 0.5 + 0.5;
+                    }
+                });
+            }, 100);
         });
     </script>
 </body>
-</html>
-   
-      <img src="https://enzostvs-deepsite.hf.space/arrow.svg" class="absolute bottom-8 left-0 w-[100px] transform rotate-[30deg]" />
-    <script></script>
-  </body>
 </html>
